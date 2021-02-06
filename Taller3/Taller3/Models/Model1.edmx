@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Taller3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Taller3.dbo.pilotos' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pilotos">
+          <Key>
+            <PropertyRef Name="codigo" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="horas de vuelo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="horas de vuelo" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Taller3ModelStoreContainer">
+          <EntitySet Name="pilotos" EntityType="Self.pilotos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [pilotos].[codigo] AS [codigo], 
+    [pilotos].[nombre] AS [nombre], 
+    [pilotos].[horas de vuelo] AS [horas de vuelo]
+    FROM [dbo].[pilotos] AS [pilotos]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Taller3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="pilotos">
+          <Key>
+            <PropertyRef Name="codigo" />
+            <PropertyRef Name="nombre" />
+            <PropertyRef Name="horas_de_vuelo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="horas_de_vuelo" Type="Time" Nullable="false" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="Taller3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="pilotos" EntityType="Self.pilotos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Taller3ModelStoreContainer" CdmEntityContainer="Taller3Entities">
+          <EntitySetMapping Name="pilotos">
+            <EntityTypeMapping TypeName="Taller3Model.pilotos">
+              <MappingFragment StoreEntitySet="pilotos">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="horas_de_vuelo" ColumnName="horas de vuelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
