@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ecbce57110bf4dac86266e25000fc34a" Name="Diagram1">
+      <Diagram DiagramId="d209e1a6a9ad4d7582621794aec8d216" Name="Diagram1">
         <EntityTypeShape EntityType="Taller3Model.pilotos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>

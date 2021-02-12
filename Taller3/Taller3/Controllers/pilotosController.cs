@@ -13,7 +13,7 @@ namespace Taller3.Controllers
 {
     public class pilotosController : ApiController
     {
-        Taller3Entities dbContext = new Taller3Entities();
+        Taller3Entities1 dbContext = new Taller3Entities1();
         // GET api/pilotos
         public IQueryable<pilotos> Get()
         {
@@ -55,7 +55,8 @@ namespace Taller3.Controllers
             }
             catch (DbUpdateException)
             {
-                if (dbContext.pilotos.Contains(piloto))
+                pilotos buscado = dbContext.pilotos.Find(piloto.codigo);
+                if (buscado == null)
                 {
                     return Conflict();
                 }
@@ -68,8 +69,9 @@ namespace Taller3.Controllers
             return CreatedAtRoute("DefaultApi", new { id = piloto.codigo }, piloto);
         }
 
-        // PUT: api/piloto/5
+        // PUT: api/pilotos/5
         [ResponseType(typeof(void))]
+        [HttpPut]
         public IHttpActionResult Putpiloto(int id, pilotos piloto)
         {
             if (!ModelState.IsValid)
@@ -90,7 +92,8 @@ namespace Taller3.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (dbContext.pilotos.Contains(piloto))
+                pilotos buscado = dbContext.pilotos.Find(id);
+                if (buscado==null)
                 {
                     return NotFound();
                 }
@@ -103,7 +106,7 @@ namespace Taller3.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // DELETE: api/piloto/5
+        // DELETE: api/pilotos/5
         [ResponseType(typeof(pilotos))]
         public IHttpActionResult Deletepiloto(int id)
         {

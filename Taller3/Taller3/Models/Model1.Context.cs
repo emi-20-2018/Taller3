@@ -13,10 +13,10 @@ namespace Taller3.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Taller3Entities : DbContext
+    public partial class Taller3Entities1 : DbContext
     {
-        public Taller3Entities()
-            : base("name=Taller3Entities")
+        public Taller3Entities1()
+            : base("name=Taller3Entities1")
         {
         }
     

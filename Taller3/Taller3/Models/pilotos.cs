@@ -14,12 +14,13 @@ namespace Taller3.Models
     using System.ComponentModel.DataAnnotations;
 
     public partial class pilotos
-    {
+    {   
         [Key]
         public int codigo { get; set; }
-        [Required][Display(Name ="Nombre Completo")][StringLength(200,MinimumLength =0)]
+        [Required][Display(Name="Nombre Completo")][StringLength(200,MinimumLength=0)]
         public string nombre { get; set; }
         [Display(Name ="Horas de vuelo")]
         public System.TimeSpan horas_de_vuelo { get; set; }
+
     }
 }
